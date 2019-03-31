@@ -14,17 +14,12 @@ class MessageForm extends Component {
   }
 
   handleChange(event) {
-    console.log(event.target.value);
-    this.setState({value: event.target.value});
+    this.setState({ value: event.target.value });
   }
 
 
-  // IT IS NOT DOING THE EVENT EACH TIME.
-  // HOW CAN I GET IT TO TRIGGER JUST ON SUBMIT
-
   handleSubmit(event) {
-    console.log('Submitted: ' + this.state.value);
-    this.props.createMessage('general', 'tomek', 'test!');
+    this.props.createMessage('general', 'tomek', this.state.value);
     // event.preventDefault();
   }
 
