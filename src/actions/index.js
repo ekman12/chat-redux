@@ -17,12 +17,14 @@ export function createMessage(channel, author, content) {
   // debugger
   const body = { content, author };
   const url = `https://wagon-chat.herokuapp.com/${channel}/messages`;
-  return fetch(url, {
+  // debugger
+  fetch(url, {
     method: 'POST',
     headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
     body: JSON.stringify(body)
   })
     .then(response => response.json())
     .then(data => data);
+  // debugger
 }
 
