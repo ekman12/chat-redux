@@ -1,0 +1,17 @@
+Components:
+* Message has author, content and channel.
+* Channel (MessageList) containing individual messages
+
+ChannelList show all message lists
+Messagelist shows all messages
+Need a message form to send a message
+
+click on channellist to go to channel
+
+
+
+
+
+
+need to know the current user.
+
