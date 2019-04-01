@@ -3,7 +3,7 @@ import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 // import Message from "../components/message";
 
-import { createMessage } from "../actions";
+import { createMessage, setMessages } from "../actions";
 
 class MessageForm extends Component {
   constructor(props) {
@@ -19,12 +19,13 @@ class MessageForm extends Component {
 
 
   handleSubmit(event) {
-    // event.preventDefault(); THIS CREATES AN ERROR BUT STOPS THE PAGE REFRESHING AND EVEN THE MESSAGE SENDING
-    // TRIED SETTING VALUE TO '' BUT DIDN'T UPDATE FORM
+    event.preventDefault();
+    const apiValue = this.state.value;
+    this.setState({ value: '' });
     this.props.createMessage(
       this.props.selectedChannel,
       this.props.currentUser,
-      this.state.value
+      apiValue,
     );
   }
 

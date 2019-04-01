@@ -12,8 +12,18 @@ class MessageList extends Component {
   }
 
   componentDidMount() {
-   this.props.setMessages(this.props.selectedChannel);
+    const fetchMessages = () => {
+      this.props.setMessages(this.props.selectedChannel);
+    };
+    fetchMessages();
+    // this.interval = setInterval(fetchMessages, 10000);
   }
+
+  // componentWillUnmount() {
+  //   clearInterval(this.interval);
+  // }
+
+// THE MOUNTING AND UNMOUNTING REFRESH NEEDS TO BE DONE
 
   render() {
     // const messages = this.props.setMessages(this.props.selectedChannel);
@@ -22,9 +32,9 @@ class MessageList extends Component {
         <div className="channel-title">
           <span>{this.props.selectedChannel}</span>
         </div>
-          {this.props.messages.map((message, index) => {
-            return <Message key={message.name} message={message} tabIndex={index} />;
-          })}
+        {this.props.messages.map((message, index) => {
+          return <Message key={message.name} message={message} tabIndex={index} />;
+        })}
       </div>
     );
   }
