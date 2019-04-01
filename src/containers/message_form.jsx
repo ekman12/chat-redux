@@ -19,14 +19,18 @@ class MessageForm extends Component {
 
 
   handleSubmit(event) {
-    this.props.createMessage(this.props.selectedChannel, this.props.currentUser, this.state.value);
-    // event.preventDefault();
+    // event.preventDefault(); THIS CREATES AN ERROR BUT STOPS THE PAGE REFRESHING AND EVEN THE MESSAGE SENDING
+    // TRIED SETTING VALUE TO '' BUT DIDN'T UPDATE FORM
+    this.props.createMessage(
+      this.props.selectedChannel,
+      this.props.currentUser,
+      this.state.value
+    );
   }
 
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        Name:
         <input type="text" value={this.state.value} onChange={this.handleChange} />
         <input type="submit" value="Submit" />
       </form>

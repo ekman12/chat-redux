@@ -20,8 +20,11 @@ class Message extends Component {
 
   render() {
     return (
-      <div className="message">
-        <strong>{this.props.message.content}</strong> - {this.props.message.author}
+      <div className="message-container">
+        <i>
+          {this.props.message.author} <small> {this.props.message.created_at} </small>
+        </i>
+        <p> {this.props.message.content} </p>
       </div>
     );
   }

@@ -15,10 +15,13 @@ class MessageList extends Component {
 
   render() {
     return (
-      <div className="messages">
-        {this.props.messages.map((message, index) => {
-          return <Message key={message.name} message={message} tabIndex={index} />;
-        })}
+      <div className="channel-container">
+        <div className="channel-title">
+          <span>Heading!</span>
+        </div>
+          {this.props.messages.map((message, index) => {
+            return <Message key={message.name} message={message} tabIndex={index} />;
+          })}
       </div>
     );
   }

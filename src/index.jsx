@@ -3,8 +3,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
-import { logger } from 'redux-logger';
 import reduxPromise from 'redux-promise';
+import { logger } from 'redux-logger';
 
 // internal modules
 import App from './components/app';

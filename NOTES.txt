@@ -8,10 +8,16 @@ Need a message form to send a message
 
 click on channellist to go to channel
 
-
-
-
-
-
 need to know the current user.
+
+*******************************************************
+
+QUESTIONS:
+
+1) WHY DOES THE PAGE REFRESH WITH FETCH?
+
+
+
+
+********************************************************
 
