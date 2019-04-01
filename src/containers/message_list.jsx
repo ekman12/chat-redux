@@ -8,16 +8,19 @@ import { setMessages } from "../actions";
 class MessageList extends Component {
 
   componentWillMount() {
-    console.log('componentWillMount called');
-    this.props.setMessages();
-    console.log('componentWillMount called > setMessages called');
+    this.props.setMessages(this.props.selectedChannel);
+  }
+
+  componentDidMount() {
+   this.props.setMessages(this.props.selectedChannel);
   }
 
   render() {
+    // const messages = this.props.setMessages(this.props.selectedChannel);
     return (
       <div className="channel-container">
         <div className="channel-title">
-          <span>Heading!</span>
+          <span>{this.props.selectedChannel}</span>
         </div>
           {this.props.messages.map((message, index) => {
             return <Message key={message.name} message={message} tabIndex={index} />;
@@ -29,7 +32,8 @@ class MessageList extends Component {
 
 function mapStateToProps(state) {
   return {
-    messages: state.messages
+    messages: state.messages,
+    selectedChannel: state.selectedChannel
   };
 }
 

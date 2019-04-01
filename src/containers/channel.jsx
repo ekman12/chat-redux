@@ -2,32 +2,33 @@ import React, { Component } from "react";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 
-import { selectChannel } from "../actions";
+import { selectChannel, setMessages } from "../actions";
 
 class Channel extends Component {
-
-  // componentWillMount() {
-  //   this.props.setMessages();
-  // }
+  handleClick = () => {
+    this.props.selectChannel(this.props.channel);
+    this.props.setMessages(this.props.channel);
+  };
 
   render() {
-    // debugger
     return (
-        <li>{this.props.channel}</li>
+      <li className="channel-item" onClick={this.handleClick}>{this.props.channel}</li>
     );
   }
 }
 
 function mapStateToProps(state) {
+  // debugger
   return {
-    messages: state.messages
+    selectedChannel: state.selectedChannel,
   };
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ selectChannel }, dispatch);
+  return bindActionCreators({ selectChannel, setMessages }, dispatch);
 }
 
 // export default MessageList;
 export default connect(mapStateToProps, mapDispatchToProps)(Channel);
 
+//

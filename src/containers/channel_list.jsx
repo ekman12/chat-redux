@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import Channel from "./channel";
+import Channel from "./channel"; // DON'T NEED THIS
 
 // import { setChannels } from "../actions";
+import { selectChannel } from "../actions";
 
 class ChannelList extends Component {
 
@@ -11,13 +12,19 @@ class ChannelList extends Component {
   //   this.props.setChannels();
   // }
 
+  handleClick = (event) => {
+    console.log(event.target.innerText);
+    this.props.selectChannel(event.target.innerText);
+  }
+
   render() {
     return (
-        <ul>
-          {this.props.channels.map((channel, index) => {
-            return <Channel key={channel} channel={channel} tabIndex={index} />;
-          })}
-        </ul>
+      <ul>
+        {this.props.channels.map((channel, index) => {
+          // return <li onClick={this.handleClick}>{channel}</li>
+          return <Channel channel={channel} key={channel} />;
+        })}
+      </ul>
     );
   }
 }
